@@ -22,7 +22,7 @@
 			}
 			else if($term == "Final"){
 				//echo "Okay";
-				//$sql = "select * from finalmarks where subject='{$subject}'";
+				//$sql = "select * from finalmarks where subject='{$subject}'"; 
 				header("location: final.php");
 			}
 			else if($term == "Total"){
@@ -52,7 +52,7 @@
 		    <option value="Data Structure[F]">Data Structure[F]</option>
 		    <option value="Algorithm[K]">Algorithm[K]</option>
 		    <option value="C++">C++</option>
-		  </select>
+		 	</select>
 			</td>
 		</tr>
 		<tr>

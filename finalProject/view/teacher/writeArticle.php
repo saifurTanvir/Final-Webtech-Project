@@ -1,14 +1,15 @@
 <?php
 	session_start();
 	if(isset($_POST['submit'])){
-		$subject = $_POST['subject'];
 		$heading = $_POST['heading'];
-		$des = $_POST['description'];
-		if((empty($_POST['subject']) == true) || (empty($_POST['heading']) == true) || (empty($_POST['description']) == true)){
+		$description = $_POST['description'];
+		$keywords = $_POST['keywords'];
+		if((empty($heading) == true) || (empty($description) == true) || (empty($keywords) == true)){
 		}
 		else{
+			
 			$conn = mysqli_connect('localhost', 'root', '', 'sms');
-			$sql1 = "insert into notice values('', '{$_POST["subject"]}','{$_POST["heading"]}', '{$_POST["description"]}')";
+			$sql1 = "insert into article values('', '{$_SESSION['id']}', '{$heading}','{$description}', '{$keywords}')";
 			if(mysqli_query($conn, $sql1)){
 				echo "Update successfull";
 			}else{
@@ -21,37 +22,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Notice Upload</title>
+	<title>Article Writting</title>
 </head>
 <body> 
 <form method="POST" action="#">
 	<fieldset>
-	<legend>Notice upload</legend>
+	<legend>Article Writting</legend>
 	
 	<table>
 	<tr>
-		<td><b>Select Subject: </b></td>
-		<td>
-			<select name="subject">
-		    <option value="">Demo</option>
-		    <option value="dataStructure">Data Structure[F]</option>
-		    <option value="algorithm">Algorithm[K]</option>
-		    <option value="cpp">CPP</option>
-		  </select>
-		</td>
-		<td><b style="color: red">*</b></td>
-	</tr>
-	<tr>
-		<td><b>Notice Heading:</b> </td>
+		<td><b>Heading: </b></td>
 		<td><input type="text" name="heading"></td>
 		<td><b style="color: red">*</b></td>
 	</tr>
 	<tr>
-		<td><b>Write Notice: </b></td>
+		<td><b>Description:: </b></td>
 		<td>
 			<textarea name="description" id="description"></textarea>
 		</td>
 		<td><b style="color: red">*</b></td>
+	</tr>
+	<tr>
+		<td><b>Keywords</b></td>
+		<td><input type="text" name="keywords"></td>
 	</tr>
 	<tr>
 		<td colspan="2"><input type="submit" name="submit" value="Upload" onclick="validation()"></td>

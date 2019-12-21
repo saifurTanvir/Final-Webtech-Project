@@ -67,16 +67,17 @@
 			$quizMark = "quiz".$i;
 			$assignmentMark = "assignment".$i;
 			$termMark = "term".$i;
+			$totalMark = $_POST[$quizMark] + $_POST[$assignmentMark] + $_POST[$termMark];
 			//echo $studentid[$i];
 			//echo $quizMark;
 			//echo $_POST[$quizMark];
 
-			
+			 
 
 			//, assignment='{}', term='{}', total='{}'
 			//term id subject diye search kore update korte hobe
 
-			$sql = "UPDATE midmarks set quiz=$_POST[$quizMark], assignment=$_POST[$assignmentMark], term=$_POST[$termMark]  where subject='{$_SESSION['subjectForMarks']}' AND studentid='{$studentid[$i]}' ";
+			$sql = "UPDATE midmarks set quiz=$_POST[$quizMark], assignment=$_POST[$assignmentMark], term=$_POST[$termMark], total=$totalMark  where subject='{$_SESSION['subjectForMarks']}' AND studentid='{$studentid[$i]}' ";
 
 			//$sql = "UPDATE midmarks set quiz= $quizMark where subject='{$_SESSION['subjectForMarks']}' AND studentid='{$studentid[$i]}' ";
 

@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,23 +9,28 @@
 <body>
 	<fieldset>
 		<legend>Class Schedule</legend>
-	<table>
+	<table border="1px">
 		<tr>
-			<th><b>Saturday</b></th>
-			<th><b>Sunday</b></th>
-			<th><b>Monday</b></th>
-			<th><b>Tuesday</b></th>
-			<th><b>Wednesday</b></th>
-			<th><b>Thursday</b></th>
+			<th><b>subject</b></th>
+			<th><b>Time</b></th>
 		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
+		<?php
+			$conn = mysqli_connect('localhost', 'root', '', 'sms');
+			$sql1 = "select * from subject where teacherid='{$_SESSION['id']}'";
+			$result1 = mysqli_query($conn, $sql1);
+
+			while($user1 = mysqli_fetch_assoc($result1)){
+				?>
+				<tr>
+					<td><?php echo $user1["subject"]; ?></td>
+					<td><?php echo $user1["time"]; ?></td>
+					
+				</tr>
+				<?php
+
+			}
+
+		?>
 		<tr>
 			<td><a href="logout.php"><b>Logout</b></a></td>
 			<td><a href="../../action/teacher/teacherHome.php"><b>Home</b></a></td>

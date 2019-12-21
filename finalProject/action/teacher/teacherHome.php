@@ -38,7 +38,12 @@
 				</tr>
 				<tr>
 					<td><a href="../../view/student/studentReview.php"><b> Student Review</b></a></td>
-					<td><a href="../../view/admin/checkNotice.php"><b> Student Review</b></a></td>
+					<td><a href="../../view/admin/checkNotice.php"><b> Notice Check</b></a></td>
+				</tr>
+				<tr>
+					<td><a href="../../view/teacher/writeArticle.php"><b>Writting Article</b></a></td>
+					<td><a href=""><b>Show School Info</b></a></td>
+					
 				</tr>
 			</table>
 			</fieldset>

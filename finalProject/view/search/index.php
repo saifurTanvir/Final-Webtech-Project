@@ -4,16 +4,16 @@
   <title>student search</title>
 </head>
 <body>
-  <h1>Search Student Using Student Id And Subject</h1>
-  <div id="data">Test</div>
-  <div id="data2">Test</div>
+  <h1 style="color: red">Search Student Using Student Id And Subject</h1>
+  <div id="data"></div>
+  <div id="data2"></div>
 
   <table>
     <tr>
       <td><b>Select Subject: </b></td>
       <td>
-      <select name="subject">
-        <option value="">Demo</option>
+      <select name="subject" id="subject">
+        <option value="">Demo</option>  
         <option value="Data Structure[F]">Data Structure[F]</option>
         <option value="Algorithm[K]">Algorithm[K]</option>
         <option value="C++">C++</option>
@@ -64,21 +64,23 @@
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
           var str = this.responseText;
-          document.getElementById('data').innerHTML = this.responseText;
+          //document.getElementById('data').innerHTML = this.responseText;
           var splitData = str.split("|");   
           var length = splitData.length;
-          document.getElementById("data2").innerHTML = length;
+          //document.getElementById("data2").innerHTML = length;
 
           //document.getElementById("first").innerHTML = splitData[0];
           if(str != ""){
           	if(length <= 5 ){
-	          	for(var i = 0; i < 5; i++){
+              //var i = 0;
+	          	for( var i = 0; i < 5; i++){
 	          		var catchVeriable = "v"+i;
 	          		document.getElementById(catchVeriable).innerHTML = splitData[i];
 	          	}
 	          }
 	          else{
-	          	for(var i = 0; i < length; i++){
+              var i = 0;
+	          	for(i = 0; i < length; i++){
 	          		var catchVeriable = "v"+i;   		
          			  document.getElementById(catchVeriable).innerHTML = splitData[i];
 	          	}
@@ -90,19 +92,31 @@
     }
 
     function check(value) {
-    	//document.getElementById("data").innerHTML = "Okay Man, You are a boss!!!";
-    	var xhttp = new XMLHttpRequest();
-		xhttp.open("POST", "../../action/teacher/searchResult.php", true);
-		xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-		//1.3-string send to php
-		xhttp.send("bal="+value);
-	
-		xhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-			 	//alert(this.responseText);
-			 	document.getElementById('data').innerHTML = this.responseText;
-			}
-		};
+      //var sub = document.getElementById("subject").value;
+      var e = document.getElementById("subject");
+      var sub = e.options[e.selectedIndex].text;
+     // alert(sub);
+      if(sub == ""){
+        alert("Select Subject Please!");
+      }
+      else{
+          //document.getElementById("data").innerHTML = "Okay Man, You are a boss!!!";
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "../../action/teacher/searchResult.php", true);
+        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        //1.3-string send to php
+        
+        xhttp.send("bal="+value+"&subject="+sub);
+      
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            //alert(this.responseText);
+            document.getElementById('data').innerHTML = this.responseText;
+          }
+        };
+      }
+
+    	
     }
   </script>
 </body>

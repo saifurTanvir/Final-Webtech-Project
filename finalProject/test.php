@@ -1,19 +1,28 @@
 <?php
-  session_start();
+	if(isset($_POST['submit'])){
+		$value = $_POST['gander'];
+		if($value == ""){
+			echo "Gander is null";
+		}
+		//echo $value;
+	}
 ?>
-<h1>Hello, This is Search Result Page!</h1>
-<?php
-  echo $_POST["bal"];
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form method="POST" action="#">
+		<select name="gander">
+			<option value=""> Demo</option>
+			<option value="M"> Male</option>
+			<option value="O">Female</option>
+			<option value="F">Other</option>
+		</select>
+		<input type="submit" name="submit" value="submit">
+	</form>
 
-  $conn = mysqli_connect('localhost', 'root', '', 'sms');
-  $sql = "select * from midmarks where studentid='{$_POST["bal"]}' ";
-  $result = mysqli_query($conn, $sql);
-  while ($user = mysqli_fetch_assoc($result)) {
-    echo "Mid Total Marks: ".$user['term']."<br>";
 
-  }
-
-  
-  
-  
-?>
+</body>
+</html>

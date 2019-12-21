@@ -67,8 +67,10 @@
 			$quizMark = "quiz".$i;
 			$assignmentMark = "assignment".$i;
 			$termMark = "term".$i;
+			$totalMark = $_POST[$quizMark] + $_POST[$assignmentMark] + $_POST[$termMark];
 
-			$sql = "UPDATE finalmarks set quiz=$_POST[$quizMark], assignment=$_POST[$assignmentMark], term=$_POST[$termMark]  where subject='{$_SESSION['subjectForMarks']}' AND studentid='{$studentid[$i]}' ";
+
+			$sql = "UPDATE finalmarks set quiz=$_POST[$quizMark], assignment=$_POST[$assignmentMark], term=$_POST[$termMark], total=$totalMark where subject='{$_SESSION['subjectForMarks']}' AND studentid='{$studentid[$i]}' ";
 
 			if(mysqli_query($conn, $sql)){
 				echo "Updated Successfully";
