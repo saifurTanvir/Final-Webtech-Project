@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>school info</title>
+</head>
+<body>
+	<fieldset>
+	<legend>Management</legend>
+	<table>
+		<tr>
+			<td><b>Post</b></td>
+			<td><b>Name</b></td>
+			<td><b>Starts</b></td>
+			<td><b>Ends</b></td>
+		</tr>
+	</table>
+	</fieldset>
+	<fieldset>
+	<legend>Teachers</legend>
+	<table>
+		<tr>
+			<td><b>Post</b></td>
+			<td><b>Name</b></td>
+			<td><b>Starts</b></td>
+			<td><b>Responsibility</b></td>
+		</tr>
+	</table>
+	</fieldset>
+	<legend>Events</legend>
+	<table>
+		<tr>
+			<td><b>Post</b></td>
+			<td><b>Name</b></td>
+			<td><b>Starts</b></td>
+			<td><b>Responsibility</b></td>
+		</tr>
+	</table>
+	</fieldset>
+
+</body>
+</html>
