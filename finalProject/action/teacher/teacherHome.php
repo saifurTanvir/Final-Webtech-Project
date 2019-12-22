@@ -34,7 +34,7 @@
 				</tr>
 				<tr>
 					<td><a href="../../view/admin/Forms/index.php"><b> Download File</b></a></td>
-					<td><a href="../../view/admin/viewCources.php"><b> View Cources</b></a></td>
+					<td><a href="../../view/admin/viewArticle.php"><b> Sharpen Knowledge</b></a></td>
 				</tr>
 				<tr>
 					<td><a href="../../view/student/studentReview.php"><b> Student Review</b></a></td>
@@ -42,7 +42,7 @@
 				</tr>
 				<tr>
 					<td><a href="../../view/teacher/writeArticle.php"><b>Writting Article</b></a></td>
-					<td><a href=""><b>Show School Info</b></a></td>
+					<td><a href="../../view/admin/showSchoolInfo.php"><b>Show School Info</b></a></td>
 					
 				</tr>
 			</table>

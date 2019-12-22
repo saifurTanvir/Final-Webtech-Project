@@ -35,7 +35,7 @@
 
 		?>
 		<tr>
-			<td><a href="logout.php"><b>Logout</b></a></td>
+			<td><a href="../../action/teacher/logout.php"><b>Logout</b></a></td>
 			<td><a href="../../action/teacher/teacherHome.php"><b>Home</b></a></td>
 		</tr>
 	</table>

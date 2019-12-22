@@ -49,9 +49,9 @@
 			<td>
 			<select name="subject">
 		    <option value="">Demo</option>
-		    <option value="Data Structure[F]">Data Structure[F]</option>
-		    <option value="Algorithm[K]">Algorithm[K]</option>
-		    <option value="C++">C++</option>
+		    <option value="Bangla 1st Part[A]">Bangla 1st Part[A]</option>
+		    <option value="Bangla 1st Part[B]">Bangla 1st Part[B]</option>
+		    <option value="Bangla 2nd Part[B]">Bangla 2nd Part[B]</option>
 		 	</select>
 			</td>
 		</tr>
@@ -70,7 +70,7 @@
 			<td colspan="2"><input type="submit" name="submit" value="Search"></td>
 		</tr>
 		<tr>
-			<td><a href="logout.php"><b>Logout</b></a></td>
+			<td><a href="../../../action/teacher/logout.php"><b>Logout</b></a></td>
 			<td><a href="../../../action/teacher/teacherHome.php"><b>Home</b></a></td>
 		</tr>
 	</table>

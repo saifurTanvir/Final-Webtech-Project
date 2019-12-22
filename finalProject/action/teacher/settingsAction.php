@@ -1,5 +1,5 @@
 <?php
-	echo "Okay<br>";
+	//echo "Okay<br>"; 
 	require_once('../../db/db.php');
 	require_once('../../db/functions.php');
 	$text = $_POST['data'];

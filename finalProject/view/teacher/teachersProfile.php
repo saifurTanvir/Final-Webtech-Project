@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	//session_start();
 	require_once("../../db/db.php");
 	require_once("../../db/functions.php");
 
@@ -54,7 +54,7 @@
 			<td><p><?php echo $user['phone']; ?></p></td>
 		</tr>
 		<tr>
-			<td><a href="logout.php"><b>Logout</b></a></td>
+			<td><a href="../../action/teacher/logout.php"><b>Logout</b></a></td>
 			<td><a href="../../action/teacher/teacherHome.php"><b>Home</b></a></td>
 		</tr>
 	</table>

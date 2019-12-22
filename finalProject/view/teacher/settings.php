@@ -64,13 +64,13 @@
 		else{
 			document.getElementById("confirmPasswordError").innerHTML = "";
 			count++;
-			alert(count);
+			//alert(count);
 		}	
 		if(count == 3){
 			var toSend = {
 				currentPassword: currentPassword,
 				newPassword: newPassword,
-				confirmPassword: confirmPassword
+				confirmPassword: confirmPassword 
 			};
 			var jsonString = JSON.stringify(toSend);
 			//alert(jsonString);
