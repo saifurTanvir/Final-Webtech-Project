@@ -48,10 +48,21 @@
 			<td><b>Select Subject: </b></td>
 			<td>
 			<select name="subject">
-		    <option value="">Demo</option>
-		    <option value="Bangla 1st Part[A]">Bangla 1st Part[A]</option>
-		    <option value="Bangla 1st Part[B]">Bangla 1st Part[B]</option>
-		    <option value="Bangla 2nd Part[B]">Bangla 2nd Part[B]</option>
+		    	<option value="">Demo</option>
+				<?php
+					$conn = mysqli_connect('localhost', 'root', '', 'sms');
+					$sql1 = "select * from subject where teacherid='{$_SESSION['id']}'";
+					$result1 = mysqli_query($conn, $sql1);
+
+					while($user1 = mysqli_fetch_assoc($result1)){
+						?>
+						<option value="<?php echo $user1["subject"]; ?>"> <?php echo $user1["subject"]; ?></option>
+
+						<?php
+
+					}
+
+				?>
 		 	</select>
 			</td>
 		</tr>

@@ -14,7 +14,15 @@
 			
 			<table border="1px">
 				<tr>
-					<td colspan="2" style="color: blue" align="center"><h1>Welcome <?php echo $_SESSION['id']; ?></h1></td>
+					<?php
+					$conn = mysqli_connect('localhost', 'root', '', 'sms');
+					$sql1 = "select teachername from subject where teacherid='{$_SESSION['id']}'";
+					$result1 = mysqli_query($conn, $sql1);
+					$user1 = mysqli_fetch_assoc($result1);
+
+					?>
+					<td colspan="2" style="color: blue" align="center"><h1>Welcome <?php echo $user1['teachername']; ?></h1></td>
+		
 				</tr>
 				<tr>
 					<td><a href="../../view/teacher/settings.php"><b> Settings</b></a></td>
@@ -30,11 +38,13 @@
 				</tr>
 				<tr>
 					<td><a href="../../view/teacher/file/index.php"><b> Note Management</b></a></td>
-					<td><a href="../../view/student/noticeUpload.php"><b> Notice Management</b></a></td>
+					<td><a href="../../view/admin/Forms/index.php"><b> Download File</b></a></td>
+					
 				</tr>
 				<tr>
-					<td><a href="../../view/admin/Forms/index.php"><b> Download File</b></a></td>
-					<td><a href="../../view/admin/viewArticle.php"><b> Sharpen Knowledge</b></a></td>
+					<td><a href="../../view/student/noticeUpload.php"><b> Notice Upload</b></a></td>
+					<td><a href="../../view/student/deleteNotice.php"><b> Notice Delete</b></a></td>
+					
 				</tr>
 				<tr>
 					<td><a href="../../view/student/studentReview.php"><b> Student Review</b></a></td>
@@ -43,7 +53,9 @@
 				<tr>
 					<td><a href="../../view/teacher/writeArticle.php"><b>Writting Article</b></a></td>
 					<td><a href="../../view/admin/showSchoolInfo.php"><b>Show School Info</b></a></td>
-					
+				</tr>
+				<tr>
+					<td colspan="2"><a href="../../view/admin/viewArticle.php"><b> Sharpen Knowledge</b></a></td>
 				</tr>
 			</table>
 			</fieldset>

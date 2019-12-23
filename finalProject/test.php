@@ -1,28 +1,9 @@
-<?php
-	if(isset($_POST['submit'])){
-		$value = $_POST['gander'];
-		if($value == ""){
-			echo "Gander is null";
-		}
-		//echo $value;
+<button value=<?php echo "bal"; ?> id="b1" onclick="f1(this.value)">Click</button>
+<div id="test"></div>
+<script type="text/javascript">
+	function f1(value) {
+		var data = document.getElementById('b1').value;
+		document.getElementById("test").innerHTML = data;
 	}
-?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-	<form method="POST" action="#">
-		<select name="gander">
-			<option value=""> Demo</option>
-			<option value="M"> Male</option>
-			<option value="O">Female</option>
-			<option value="F">Other</option>
-		</select>
-		<input type="submit" name="submit" value="submit">
-	</form>
-
-
-</body>
-</html>
+	
+</script>

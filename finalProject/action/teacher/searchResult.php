@@ -2,8 +2,8 @@
 	session_start();
 ?>
 <?php
-	echo $_POST["bal"];
-	echo "subject is: ".$_POST['subject'];
+	echo "Student ID is: ".$_POST["bal"]."<br>";
+	echo "Subject is: ".$_POST['subject'];
 
 	$conn = mysqli_connect('localhost', 'root', '', 'sms');
 	$sql1 = "select * from midmarks where studentid='{$_POST["bal"]}' AND subject='{$_POST['subject']}' ";
@@ -24,13 +24,13 @@
 			$user2 = mysqli_fetch_assoc($result2);
 			?><tr><?php
 			?><td><?php 
-				echo $user1['term']."<br>";   
+				echo $user1['total']."<br>";   
 			?></td><?php
 			?><td><?php 
-				echo $user2['term']."<br>";   
+				echo $user2['total']."<br>";   
 			?></td><?php
 			?><td><?php 
-				echo $user1['term']+$user2['term']."<br>";   
+				echo $user1['total']*.4 +$user2['total']*.6 ."<br>";   
 			?></td><?php
 			?></tr><?php
 			

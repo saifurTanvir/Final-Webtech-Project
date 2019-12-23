@@ -32,15 +32,26 @@
 	<tr>
 		<td><b>Select Subject: </b></td>
 		<td>
-			<select name="subject">
-		    <option value="">Demo</option>
-		    <option value="dataStructure">Data Structure[F]</option>
-		    <option value="algorithm">Algorithm[K]</option>
-		    <option value="cpp">CPP</option>
-		  </select>
+		<select name="subject" style="width: 173px">
+	    	<option value="">Demo</option>
+			<?php
+				$conn = mysqli_connect('localhost', 'root', '', 'sms');
+				$sql1 = "select * from subject where teacherid='{$_SESSION['id']}'";
+				$result1 = mysqli_query($conn, $sql1);
+
+				while($user1 = mysqli_fetch_assoc($result1)){
+					?>
+					<option value="<?php echo $user1["subject"]; ?>"> <?php echo $user1["subject"]; ?></option>
+
+					<?php
+
+				}
+
+			?>
+	 	</select>
 		</td>
 		<td><b style="color: red">*</b></td>
-	</tr>
+		</tr>
 	<tr>
 		<td><b>Notice Heading:</b> </td>
 		<td><input type="text" name="heading"></td>
@@ -49,7 +60,7 @@
 	<tr>
 		<td><b>Write Notice: </b></td>
 		<td>
-			<textarea name="description" id="description"></textarea>
+			<textarea name="description" id="description" style="width: 168px"></textarea>
 		</td>
 		<td><b style="color: red">*</b></td>
 	</tr>

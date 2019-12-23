@@ -1,35 +1,59 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
   <title>student search</title>
 </head>
 <body>
-  <h1 style="color: red">Search Student Using Student Id And Subject</h1>
-  <div id="data"></div>
-  <div id="data2"></div>
+  <table border="1px">
+    <tr>
+      <td colspan="2"><h1 style="color: red">Search Student Using Student Id And Subject</h1></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div id="data"></div></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div id="data2"></div></td>
+    </tr>
 
-  <table>
     <tr>
       <td><b>Select Subject: </b></td>
       <td>
-      <select name="subject" id="subject">
-        <option value="">Demo</option>  
-        <option value="Data Structure[F]">Data Structure[F]</option>
-        <option value="Algorithm[K]">Algorithm[K]</option>
-        <option value="C++">C++</option>
+      <select name="subject" id="subject" style="width: 173px">
+          <option value="">Demo</option>
+        <?php
+          $conn = mysqli_connect('localhost', 'root', '', 'sms');
+          $sql1 = "select * from subject where teacherid='{$_SESSION['id']}'";
+          $result1 = mysqli_query($conn, $sql1);
+
+          while($user1 = mysqli_fetch_assoc($result1)){
+            ?>
+            <option value="<?php echo $user1["subject"]; ?>"> <?php echo $user1["subject"]; ?></option>
+
+            <?php
+
+          }
+
+        ?>
       </select>
       </td>
     </tr>
+
     <tr>
       <td><b>Student ID: </b></td>
-      <td><input type="text" name="" onkeyup="search(this.value)" /></td>
+      <td><input type="text" name="" onkeyup="search(this.value)" />
+
+
+      </td>
     </tr>
   </table>
 
   
   
   
-  <table border="1 px" >
+  <table border="1 px" style="margin-left: 240px">
   	<tr>
     	<td id="v0" onclick="check(this.innerHTML)" style="background-color: green"></td>
     </tr>
@@ -72,8 +96,8 @@
           //document.getElementById("first").innerHTML = splitData[0];
           if(str != ""){
           	if(length <= 5 ){
-              //var i = 0;
-	          	for( var i = 0; i < 5; i++){
+              var i = 0;
+	          	for(i = 0; i < 5; i++){
 	          		var catchVeriable = "v"+i;
 	          		document.getElementById(catchVeriable).innerHTML = splitData[i];
 	          	}
@@ -96,7 +120,7 @@
       var e = document.getElementById("subject");
       var sub = e.options[e.selectedIndex].text;
      // alert(sub);
-      if(sub == ""){
+      if(sub == "Demo"){
         alert("Select Subject Please!");
       }
       else{
