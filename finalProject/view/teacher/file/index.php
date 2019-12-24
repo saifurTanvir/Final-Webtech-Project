@@ -18,9 +18,9 @@
 				<td>
 					<select name="subject" id="subject">
 					    <option value="">Select Subject</option>
-					    <option value="dataStructure">Data Structure</option>
-					    <option value="algorithm">Algorithm</option>
-					    <option value="cpp">CPP</option>
+					    <option value="Bangla 1st Part[A]">Bangla 1st Part[A]</option>
+					    <option value="Bangla 1st Part[B]">Bangla 1st Part[B]</option>
+					    <option value="English 1st Part[B]">English 1st Part[B]</option>
 				  	</select>
 				</td>
 			</tr>
